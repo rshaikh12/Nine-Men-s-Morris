@@ -1,0 +1,187 @@
+
+Git CheatSheet for Linux/Unix
+
+
+**************
+Basic Commands
+**************
+
+-----------------
+Set config values
+-----------------
+
+$ git config --global user.name "xyz"
+$ git config --global user.email "example@xyz.com"
+
+show config parameters:
+$ git config --list
+
+
+---------
+Man Pages
+---------
+$ git help <tool>
+or
+$ git <tool> --help
+
+-------------------------
+Clone existing repository
+-------------------------
+$ git clone <url> <where_to_clone>
+
+
+------------------------------------
+Initialize a repo from existing code
+------------------------------------
+inside the directory that you want to add:
+$ git init
+
+
+-----------------------
+Check local repo status
+-----------------------
+$ git status
+
+
+------------------
+Add Gitignore file
+------------------
+$ touch .gitignore
+// put all files in here that you don't want to be
+// tracked in the remote repo (e.g. exec, *.o etc.)
+
+
+
+********
+Overview
+********
+
+1. Working Directory
+    - all local untracked files
+    
+2. Staging Area
+    - files you explicitly want to be committed
+
+3. .git directory 
+    - local git repository
+
+4. remote git repository
+
+
+
+------------------------------------------------
+add files from Working Directory to Staging Area
+------------------------------------------------
+$ git add -A            // adds all files
+$ git add <file_name>   // adds specific file
+
+------------------------------
+remove files from Staging Area
+------------------------------
+$ git reset             // remove all files
+$ git reset <file_name> // remove specific file
+
+
+
+----------------------------------------------------
+move files from Staging Area to local .git directory
+----------------------------------------------------
+$ git commit -m "<your Commit-Message here>"
+
+---------------
+view commit log
+---------------
+$ git log
+
+
+
+---------------------------
+push changes to remote repo
+---------------------------
+$ git push -u origin <branch_name>
+
+----------------------------------------
+view information about remote repository
+----------------------------------------
+$ git branch -a     // show all branches
+
+
+
+
+-----------------------------------------------
+Complete Push Process
+-----------------------------------------------
+$ git diff                          // show differences between local and remote code
+$ git status                        // check your local status
+$ git add -A                        // add all files to the staging area
+$ git commit -m "<message>"         // commit files to local repo
+
+$ git pull origin <branch_name>     // make sure local repo is up to date first!!!
+$ git push -u origin <branch_name>  // finally push changes to remote repo
+
+
+
+
+********
+Branches
+********
+
+It is helpful to create new branches for special features, new files etc...
+
+-----------------
+create new Branch
+-----------------
+$ git branch <branch_name>
+
+----------------------
+switch to other Branch
+----------------------
+$ git checkout <branch_name>
+
+
+--------------------------
+Merge a Branch with master
+--------------------------
+$ git checkout master           // switch to master branch
+$ git pull origin master        // always pull before committing changes!!
+$ git branch --merged           // lists branches that have already been merged
+$ git merge <branch_name>       // merges the branch with master locally
+$ git push origin master        // push the changes to remote repo
+
+
+---------------
+Delete a Branch
+---------------
+$ git branch --merged
+$ git branch -d <branch_name>               // delete branch locally
+$ git branch -a                             // confirm deletion
+$ git push origin --delete <branch_name>    // delete remote branch
+
+
+
+------------
+Show git log
+------------
+
+$ git log --all --graph -- decorate
+
+
+
+------------------------------------
+Discard Changes and pull from Remote
+------------------------------------
+$ git reset --hard origin/<branch_name>
+$ git pull origin <branch_name>
+
+
+
+
+
+
+
+
+
+
+
+
+

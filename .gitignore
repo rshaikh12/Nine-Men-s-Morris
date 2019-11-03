@@ -1,0 +1,9 @@
+.DS_STORE
+sysprak-client
+*.o
+*.a
+sysprak-client.dSYM/
+test
+test.c
+sysprak-abgabe.sh
+
